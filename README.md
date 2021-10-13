@@ -76,18 +76,18 @@ My approach was to try several different models. A simple dummy classifier, line
 While I wasn't surprised that the random forest algorithm won. I was surprised that the random forest without undersampling had a better recall than the one with undersampling. This went against my hypothesis and might be due to the synthetic nature of the data or human error of model preparation. This is something I'll continue to look into as I iterate on the project. 
 
 
-## Implications
+## 7. Implications
 Models can always be optimized. The tradeoff is that tuning parameters using CV algorithms such as GridSearchCV comes with the heavy cost of computation time. There may be parameters that produce much better results than our winning model, however, the decision we make for the business is that those steps need not be taken. The winning model is accurate enough and satisfies our business goals.
 
 Our winning model classifies 2455 out of 2457 fraud correctly from our test set and 828657 out of 828666 nonFrauds correctly. Implementing this model into our system would drastically improve fraud detection rate and help retain existing customers and incentivize new customers to join. Had our winning model been in place, it would have detected 8206 of the 8213 frauds and prevented the loss of over $3.6 billion.
 
-## 10. Future Improvements
+## 8. Future Improvements
 
 * In the future, I would love to spend more time addressing the undersampling issue as to why removing undersampling improves the random forest model. 
 
 * This fraud detection system could also be improved by introducing more data to it. I would like to find a way to generate the synthetic data myself to feed into the model and test it. 
 
-## 11. Credits
+## 9. Credits
 
 Thanks to Edgar Alonso Lopez-Rojas for posting his Phd thesis and the dataset onto Kaggle, and Mukesh Mithrakumar for being an amazing Springboard mentor.
 
