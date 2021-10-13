@@ -30,7 +30,7 @@ The most common strategy in place for identifying potentially fraudulent transac
 In the current dataset, system in place has a fraud loss of just over $12 billion.
 In our business scenario, we work for a payment processing company which has identified a major flaw in its technology. Too many of their customers are losing money to fraudulent transactions. Specifically, the system is not catching fraud transactions and thinks a lot of them are legitimate.
 
-The goal is to create a more robust and intelligent classifier to be able to catch these transactions and reduce the fraud loss by $5 billion.
+The goal is to create a more robust and intelligent classifier to be able to catch these transactions and reduce the fraud loss by $3 billion.
 This is approached through identifying what features correlate to existing fraud transactions and creating new features from those to help identify new ones.
 
 ## 3. Data Cleaning 
