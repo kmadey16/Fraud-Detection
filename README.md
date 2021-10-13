@@ -1,4 +1,4 @@
-![cover_photo](./READ_ME_img/cover.png)
+![cover_photo](./READ_ME_img/cover.PNG)
 # Building a model for identifying credit card fraud
 
 *As technology has evolved and more people use the internet for transactions, credit card fraud has continually increased. In 2018, worldwide credit card fraud loss was [estimated to be at $24.26 billion](https://shiftprocessing.com/credit-card-fraud-statistics/). Even worse, since the COVID-19 pandemic, credit card fraud has increased even more, [up to 44.7%](https://www.fool.com/the-ascent/research/identity-theft-credit-card-fraud-statistics/). The United States has ranked among the top countries where this occurs.
