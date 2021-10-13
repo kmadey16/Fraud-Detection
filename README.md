@@ -44,9 +44,13 @@ This data didn't require much cleaning. A lot of the issues from above were addr
 ## 4. EDA
 
 * We see the frauds only occur from two types of transactions. Reducing our data to these two reduces our heavy imbalance by lowering data size from 6.3 million to 2.7 million transactions. 
+
+
 ![](././READ_ME_img/EDA.PNG)
 
 * We can also take a look at how fraud occurs depending on the time of day. We see a normal distribution of fraud occuring in the early morning hours. This is used to generate one of the features, which is based on when the transaction occurs. 
+
+
 ![](././READ_ME_img/EDA2.PNG)
 
 ## 5. Undersampling and normalization 
