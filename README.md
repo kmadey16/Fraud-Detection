@@ -35,7 +35,7 @@ This is approached through identifying what features correlate to existing fraud
 
 ## 3. Data Cleaning 
 
-![](./READ_ME_img/cleaning.png)
+![](./READ_ME_img/cleaning.PNG)
 
 In a classification system we pick out a target/feature column in mind, in this case the isFraud column. Then we develop features that would help a model correctly classify the data relative to this target/feature. 
 
@@ -44,10 +44,10 @@ This data didn't require much cleaning. A lot of the issues from above were addr
 ## 4. EDA
 
 * We see the frauds only occur from two types of transactions. Reducing our data to these two reduces our heavy imbalance by lowering data size from 6.3 million to 2.7 million transactions. 
-![](././READ_ME_img/EDA.png)
+![](././READ_ME_img/EDA.PNG)
 
 * We can also take a look at how fraud occurs depending on the time of day. We see a normal distribution of fraud occuring in the early morning hours. This is used to generate one of the features, which is based on when the transaction occurs. 
-![](././READ_ME_img/EDA2.png)
+![](././READ_ME_img/EDA2.PNG)
 
 ## 5. Undersampling and normalization 
 Generally with skewed datasets such as the fraud dataset we are working with we run into the issue of imbalanced data. This imbalanced data influences the performance of a ML model. We need to use methods such as undersampling or oversampling so that our model isn't influenced by the highly skewed data.
@@ -63,7 +63,7 @@ Gradient descent based algorithms require features to be scaled, and this is why
 
 My approach was to try several different models. A simple dummy classifier, linear regression, decision tree, random forest, and gradient boosting. In my feature engineering section I found that in 99% of fraud transactions, there was a transfer of a certain amount followed by a cash out right after. Normally, when a feature applies to nearly all of the target data uniquely then a model may not be necessary. However, I test the winning model both with and without this feature to see how it affects performance. I find that the model works best with all feaures and removing all features except the 2 important ones and vice versa decreased model performance. 
 
-![](./READ_ME_img/model.png)
+![](./READ_ME_img/model.PNG)
 
 >***NOTE:** I choose recall as my evaluation metric because the focus of the model is to be able to accurately classify fraud transactions. It would be more detrimental from a business standpoint to classify a fraud transaction as nonfraud than the other way around.*
 
