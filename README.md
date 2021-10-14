@@ -30,7 +30,7 @@ The most common strategy in place for identifying potentially fraudulent transac
 In the current dataset, system in place has a fraud loss of just over $12 billion.
 In our business scenario, we work for a payment processing company which has identified a major flaw in its technology. Too many of their customers are losing money to fraudulent transactions. Specifically, the system is not catching fraud transactions and thinks a lot of them are legitimate.
 
-The goal is to create a more robust and intelligent classifier to be able to catch these transactions and reduce the fraud loss by $3 billion.
+The goal is to create a more robust and intelligent classifier to be able to catch these transactions and reduce the fraud loss rate to within market levels. Currently, the system in place is broken so the fraud loss rate per $100 is absurdly high at $1.37, where [companies in the market range from $0.06 to $0.28](https://www.altexsoft.com/blog/credit-card-fraud-detection/).  
 This is approached through identifying what features correlate to existing fraud transactions and creating new features from those to help identify new ones.
 
 ## 3. Data Cleaning 
@@ -73,13 +73,30 @@ My approach was to try several different models. A simple dummy classifier, line
 
 **WINNER: Random Forest Algorithm**
 
-While I wasn't surprised that the random forest algorithm won. I was surprised that the random forest without undersampling had a better recall than the one with undersampling. This went against my hypothesis and might be due to the synthetic nature of the data or human error of model preparation. This is something I'll continue to look into as I iterate on the project. 
+![](./READ_ME_img/fin.PNG)
+
+There are several algorithms we've chosen that have high recall, which is what we were looking for! The top models are:
+
+- The decision tree
+- The random forest with undersampling
+- The random forest with class weight
+- Gradient boosting
+All of these have recall accuracy around 99.6% or higher. The difference then falls to precision and computation time. Precision in our case is being able to correctly classify nonFraud transactions so we don't have a situation where a legitimate transaction is blocked because its flagged as fraud by our system. With this in mind, our choices for best model reduce to:
+
+- Random Forest with class weight
+- Random Forest with undersampling
+- Gradient boosting
+The best one here is the random forest with class weight. If we were ignoring precision we could choose gradient boosting since it had a better recall and is computationally less expensive. However, 8% of precision accuracy is more valuable to us than 4 seconds of computation time. Our winning model becomes random forest with class weight.
 
 
 ## 7. Implications
 Models can always be optimized. The tradeoff is that tuning parameters using CV algorithms such as GridSearchCV comes with the heavy cost of computation time. There may be parameters that produce much better results than our winning model, however, the decision we make for the business is that those steps need not be taken. The winning model is accurate enough and satisfies our business goals.
 
-Our winning model classifies 2455 out of 2457 fraud correctly from our test set and 828657 out of 828666 nonFrauds correctly. Implementing this model into our system would drastically improve fraud detection rate and help retain existing customers and incentivize new customers to join. Had our winning model been in place, it would have detected 8206 of the 8213 frauds and prevented the loss of over $3.6 billion.
+The measure we were looking to calculate was fraud loss rate per $100 transacted. Before building our model, our loss rate was $1.37 per $100 transacted. This was several magnitudes worse than industry average. 
+A top company like AMEX has a fraud loss rate of 0.06, PayPal has one at 0.28. 
+For our model we were able to get a fraud loss rate of 0.0012, which would be a standard in the industry. 
+
+One thing to note however, is that the top companies rank this based on a year basis. The dataset used was limited to a one month period. Additionally, the dataset is synthetic, it would be nice to be able to work using real-world data and with a dataset going furthur back than a month so we can get a more accurate representation of the effectiveness of our model.
 
 ## 8. Future Improvements
 
