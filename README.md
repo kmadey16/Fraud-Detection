@@ -80,12 +80,14 @@ There are several algorithms we've chosen that have high recall, which is what w
 - The decision tree
 - The random forest with undersampling
 - The random forest with class weight
-- Gradient boosting
+- Gradient boosting  
+
 All of these have recall accuracy around 99.6% or higher. The difference then falls to precision and computation time. Precision in our case is being able to correctly classify nonFraud transactions so we don't have a situation where a legitimate transaction is blocked because its flagged as fraud by our system. With this in mind, our choices for best model reduce to:
 
 - Random Forest with class weight
 - Random Forest with undersampling
-- Gradient boosting
+- Gradient boosting  
+
 The best one here is the random forest with class weight. If we were ignoring precision we could choose gradient boosting since it had a better recall and is computationally less expensive. However, 8% of precision accuracy is more valuable to us than 4 seconds of computation time. Our winning model becomes random forest with class weight.
 
 
@@ -100,7 +102,7 @@ One thing to note however, is that the top companies rank this based on a year b
 
 ## 8. Future Improvements
 
-* In the future, I would love to spend more time addressing the undersampling issue as to why removing undersampling improves the random forest model. 
+* In the future, I would love to spend more time trying different techniques for dealing with imbalanced data, such as SMOTE, Tomek Links, etc. 
 
 * This fraud detection system could also be improved by introducing more data to it. I would like to find a way to generate the synthetic data myself to feed into the model and test it. 
 
